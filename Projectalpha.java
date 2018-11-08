@@ -33,6 +33,7 @@ public class Projectalpha{
   }
 
   public static void thanks(){
+    System.out.println("Thank you very much for visiting  our restaurant. We will be happy to return to serve you with our best service. We hope to see you again soon!")
   }
 
 }
