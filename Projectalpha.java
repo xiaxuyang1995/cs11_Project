@@ -12,10 +12,6 @@ public class Projectalpha{
     System.out.printf("%s ? Nice name",username);
   }
 
-  public static void route(){
-    //in this method we calculate the fastest route from the customer to our restaurant
-    //we will print a map also (hopefully we can?)
-  }
 
   public static void menu(){
     //in this method we show customers our menu
