@@ -72,6 +72,7 @@ public class Projectalpha{
     System.out.printf("%30s                        %s%n"," ","Price");
     for(int i=0;i<itemA.length; i++){
       if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
+        for(int k=0; k<)
         System.out.printf("%30s........................%.2f$%n",itemA[i],data[i][12]);
       }
     }
