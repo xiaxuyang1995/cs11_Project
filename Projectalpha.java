@@ -67,13 +67,15 @@ public class Projectalpha{
     */
 
   public static void printMenu(){
-    System.out.printf("Hey %s, here is the Menu for today!%n",username);
+    System.out.printf("Hey %s, here is the Menu!%n",username);
+
     System.out.println("                                       MENU");
     System.out.printf("%30s                          %s%n"," ","Price");
+    int k=1;
     for(int i=0;i<itemA.length; i++){
       if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
-        for(int k=0; k<)
-        System.out.printf("%30s........................%.2f$%n",itemA[i],data[i][12]);
+          System.out.printf("%2d  %28s........................%.2f$%n",k,itemA[i],data[i][12]);
+          k++;
       }
     }
   }
