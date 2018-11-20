@@ -69,7 +69,7 @@ public class Projectalpha{
   public static void printMenu(){
     System.out.printf("Hey %s, here is the Menu for today!%n",username);
     System.out.println("                                       MENU");
-    System.out.printf("%30s                        %s%n"," ","Price");
+    System.out.printf("%30s                          %s%n"," ","Price");
     for(int i=0;i<itemA.length; i++){
       if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
         for(int k=0; k<)
