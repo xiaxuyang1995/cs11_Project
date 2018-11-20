@@ -1,0 +1,1 @@
+Calories,Total Fat % Daily Values*,Cholesterol % Daily Values*,Sodium % Daily Values*,Carbohydrates % Daily Values*,Dietary Fiber % Daily Values*,Sugars (g),Protein (g),% Vitamin A,% Vitamin C,% Calcium,% Iron,Price
