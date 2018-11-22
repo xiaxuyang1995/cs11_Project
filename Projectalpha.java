@@ -82,7 +82,7 @@ public class Projectalpha{
     }
   }
 
-  public static void order(){
+  public static int[][] order(){
     //in this method we let the customers choose their meal
     Scanner order= new Scanner(System.in);
     int [][] orderarray = new int[22][2];
@@ -110,7 +110,7 @@ public class Projectalpha{
 
           }
 
-  
+
           else if(itemnumber==2){
           System.out.println("Would you like your burger to be Animal Style? ");
           String answer3 = order.nextLine();
@@ -121,10 +121,12 @@ public class Projectalpha{
 
           else {itemnumber+=6;}
 
-        System.out.printf("How many of #%d would you want? ",itemnumber);
+        orderarray[numberofitem][0]= itemnumber;
+
+        System.out.printf("How many of #%d would you want? ", menuData.itemA[itemnumber]);
         int itemquantity= order.nextInt();
         orderarray[numberofitem][1]= itemquantity;
-        System.out.printf("%d of #%d%n",itemquantity,itemnumber);
+        System.out.printf("%d of #%d%n",itemquantity,menuData.itemA[itemnumber]);
         System.out.printf("what other item would you like?%n(To finish your order, enter 'finish')%n");
         numberofitem++;
         order.nextLine();
@@ -148,6 +150,8 @@ public class Projectalpha{
    for(int i=0;i<customer.length;i++){
       System.out.printf("%d\t %d%n",customer[i][0],customer[i][1]);
     }
+
+    return customer;
   }
 
   public static void calories(){
