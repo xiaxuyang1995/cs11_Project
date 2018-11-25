@@ -37,7 +37,6 @@ public class zkx {
 
   //System.out.println(Arrays.toString(nutriA));
 
-
   public static void zkx1(int[][] orderarray, double[][] data, String[] itemA, String[] nutriA){
     //in this method we calculate the calories based on the customer's choice
     double totalCalories = 0;
