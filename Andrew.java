@@ -1,6 +1,41 @@
+import java.util.Scanner;
+
 public class Andrew{
   public static void main(String[] args){
-Scanner order= new Scanner(System.in);
+  //read data
+    TextIO.readFile("dataA.txt");
+    double[][] data = new double[23][13];
+      for (int i=0;i<23;i++) {
+        for(int j=0; j<13; j++){
+          data[i][j]=TextIO.getDouble();
+        }
+      }
+    TextIO.readFile("item.txt");
+    String item = "";
+    while (!TextIO.eof()){
+      item = TextIO.getln();
+    }
+    String itemA[] = item.split(",");
+
+    TextIO.readFile("nutri.txt");
+    String nutri = "";
+    while (!TextIO.eof()){
+      nutri = TextIO.getln();
+    }
+    String nutriA[] = nutri.split(",");
+  //print menu
+    System.out.println("                                       MENU");
+    System.out.printf("%30s                          %s%n"," ","Price");
+    int k=1;
+    for(int i=0;i<itemA.length; i++){
+      if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
+          System.out.printf("%2d  %28s........................$%.2f%n",k,itemA[i],data[i][12]);
+          k++;
+      }
+        }
+//你的码
+
+    Scanner order= new Scanner(System.in);
   int [][] orderarray = new int[23][2];
   System.out.printf("What would you like? %n(Please enter the item's corresponding number once at a time)%n");
   int numberofitem=0;
@@ -36,10 +71,10 @@ Scanner order= new Scanner(System.in);
 
       orderarray[numberofitem][0]= itemnumber;
 
-      System.out.printf("How many of #%d would you want? ", itemA[itemnumber-1]);
+    //  System.out.printf("How many of #%d would you want? ", itemA[itemnumber-1]);
       int itemquantity= order.nextInt();
       orderarray[numberofitem][1]= itemquantity;
-      System.out.printf("%d of #%d%n",itemquantity,itemA[itemnumber-1]);
+    //  System.out.printf("%d of #%d%n",itemquantity,itemA[itemnumber-1]);
       System.out.printf("what other item would you like?%n(To finish your order, enter 'finish')%n");
       numberofitem++;
       order.nextLine();
