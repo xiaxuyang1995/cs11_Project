@@ -93,7 +93,7 @@ public class Andrew{
       System.out.println("How many would you want?");
       int itemquantity= order.nextInt();
       orderarray[numberofitem][1]= itemquantity;
-      System.out.printf("%d of %s%n",itemquantity,itemA[itemnumber-1]);
+      System.out.printf("%d of %s%n%n",itemquantity,itemA[itemnumber-1]);
 
 
       System.out.printf("what other item would you like?%n(To finish your order, enter 'finish')%n");
@@ -111,9 +111,9 @@ public class Andrew{
     //customer array is the final array
 
   System.out.printf("%nHere is your order summary!!%n");
-  System.out.printf("quantity\tItem ");
+  System.out.printf("Quantity\tItem%n");
   for(int i=0;i<customer.length;i++){
-    System.out.printf("%d\t %s%n"customer[i][1],itemA[customer[i][0]-1]);
+    System.out.printf("%d \t %s", customer[i][1],itemA[customer[i][0]-1]);
   }
 
 
