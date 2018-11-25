@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Andrew{
   public static void main(String[] args){
   //read data
+  /*
     TextIO.readFile("dataA.txt");
     double[][] data = new double[23][13];
       for (int i=0;i<23;i++) {
@@ -15,7 +16,7 @@ public class Andrew{
     while (!TextIO.eof()){
       item = TextIO.getln();
     }
-    String itemA[] = item.split(",");
+    public final String itemA[] = item.split(",");
 
     TextIO.readFile("nutri.txt");
     String nutri = "";
@@ -33,7 +34,7 @@ public class Andrew{
           k++;
       }
         }
-//你的码
+**/
 
     Scanner order= new Scanner(System.in);
   int [][] orderarray = new int[23][2];
@@ -71,10 +72,13 @@ public class Andrew{
 
       orderarray[numberofitem][0]= itemnumber;
 
-    //  System.out.printf("How many of #%d would you want? ", itemA[itemnumber-1]);
+
+      System.out.println("How many would you want?");
       int itemquantity= order.nextInt();
       orderarray[numberofitem][1]= itemquantity;
-    //  System.out.printf("%d of #%d%n",itemquantity,itemA[itemnumber-1]);
+      System.out.printf("%d of #%d%n",itemquantity,itemnumber);
+
+
       System.out.printf("what other item would you like?%n(To finish your order, enter 'finish')%n");
       numberofitem++;
       order.nextLine();
