@@ -1,4 +1,4 @@
-public static void zkx(int[][] orderarray, double[][] data, String[] itemA, String[] nutriA, int itemnumber){
+public static void zkx(int[][] orderarray, double[][] data, String[] itemA, String[] nutriA){
   //in this method we calculate the calories based on the customer's choice
   double totalCalories = 0;
   double calories;
@@ -9,7 +9,8 @@ public static void zkx(int[][] orderarray, double[][] data, String[] itemA, Stri
   }
   System.out.println("The total amount of calorie is"+totalCalories);
 
-/** 是否satisfy
+/** 是否satisfy，这个不要了，太麻烦了
+
   System.out.println("Are you satisfied with the calories? (Enter yes or no)");
   Scanner order= new Scanner(System.in);
   String answer = order.nextLine();
