@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class zkx {
   public static void main(String[] args){
 
-    int[][] orderarray={{1,2,3},{1,2,3}};
+    int[][] orderarray={{1,2},{2,3},{12,3}};
 
     TextIO.readFile("dataA.txt");
     double[][] data = new double[23][13];
@@ -64,7 +64,7 @@ public class zkx {
     if(answer.equals("yes")){
       System.out.println("How many people?");
       int people = order.nextInt();
-      System.out.println("Each should pay "+(totalPrice/people));
+      System.out.println("Each should pay "+(totalPrice/people)+"dollar");
     }else{
 
     }
