@@ -2,40 +2,57 @@ import java.util.Scanner;
 
 public class Andrew{
   public static void main(String[] args){
-  //read data
-  /*
-    TextIO.readFile("dataA.txt");
-    double[][] data = new double[23][13];
-      for (int i=0;i<23;i++) {
-        for(int j=0; j<13; j++){
-          data[i][j]=TextIO.getDouble();
-        }
-      }
-    TextIO.readFile("item.txt");
-    String item = "";
-    while (!TextIO.eof()){
-      item = TextIO.getln();
-    }
-    public final String itemA[] = item.split(",");
+ //read data
 
-    TextIO.readFile("nutri.txt");
-    String nutri = "";
-    while (!TextIO.eof()){
-      nutri = TextIO.getln();
-    }
-    String nutriA[] = nutri.split(",");
-  //print menu
-    System.out.println("                                       MENU");
-    System.out.printf("%30s                          %s%n"," ","Price");
-    int k=1;
-    for(int i=0;i<itemA.length; i++){
-      if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
-          System.out.printf("%2d  %28s........................$%.2f%n",k,itemA[i],data[i][12]);
-          k++;
-      }
-        }
-**/
+ TextIO.readFile("dataA.txt");
+ double[][] data = new double[23][13];
+   for (int i=0;i<23;i++) {
+     for(int j=0; j<13; j++){
+       data[i][j]=TextIO.getDouble();
+     }
+   }
 
+   TextIO.readFile("item.txt");
+   String item = "";
+   while (!TextIO.eof()){
+     item = TextIO.getln();
+   }
+
+   String itemA[] = item.split(",");
+
+   //System.out.println(Arrays.toString(itemA));
+
+
+   TextIO.readFile("nutri.txt");
+   String nutri = "";
+   while (!TextIO.eof()){
+     nutri = TextIO.getln();
+   }
+   String nutriA[] = nutri.split(",");
+
+   //System.out.println(Arrays.toString(nutriA));
+
+
+
+
+ System.out.printf("Hey , here is the Menu!%n");
+
+ System.out.println("                                       MENU");
+ System.out.printf("%30s                          %s%n"," ","Price");
+ int k=1;
+ for(int i=0;i<itemA.length; i++){
+   if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
+       System.out.printf("%2d  %28s........................%.2f$%n",k,itemA[i],data[i][12]);
+       k++;
+   }
+ }
+
+
+
+
+
+
+//order
     Scanner order= new Scanner(System.in);
   int [][] orderarray = new int[23][2];
   System.out.printf("What would you like? %n(Please enter the item's corresponding number once at a time)%n");
@@ -76,7 +93,7 @@ public class Andrew{
       System.out.println("How many would you want?");
       int itemquantity= order.nextInt();
       orderarray[numberofitem][1]= itemquantity;
-      System.out.printf("%d of #%d%n",itemquantity,itemnumber);
+      System.out.printf("%d of %s%n",itemquantity,itemA[itemnumber-1]);
 
 
       System.out.printf("what other item would you like?%n(To finish your order, enter 'finish')%n");
@@ -93,10 +110,12 @@ public class Andrew{
     // due to data consistentce issue, transform item to correspond with data file.
     //customer array is the final array
 
-  System.out.printf("Here is your order summary!!%n");
-  System.out.printf("Item#\tquantity%n");
+  System.out.printf("%nHere is your order summary!!%n");
+  System.out.printf("quantity\tItem ");
   for(int i=0;i<customer.length;i++){
-    System.out.printf("%d\t %d%n",customer[i][0],customer[i][1]);
+    System.out.printf("%d\t %s%n"customer[i][1],itemA[customer[i][0]-1]);
   }
+
+
 }
 }
