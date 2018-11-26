@@ -113,7 +113,7 @@ public class Project{
        System.out.printf("%d                 %s%n", customer[i][1],itemA[customer[i][0]-1]);
      }
 
-    calculate(orderarray, data, itemA, nutriA);
+    calculate(customer, data, itemA, nutriA);
     thanks();
 
   }
@@ -138,7 +138,7 @@ public static void calculate(int[][] orderarray, double[][] data, String[] itemA
     price = data[(orderarray[i][0])-1][12]*orderarray[i][1];
     totalPrice = totalPrice+price;
   }
-  System.out.println("The total price is "+totalPrice);
+  System.out.printf("The total price is %.2f%n",totalPrice);
   System.out.println("Do you want to split the bill?");
   Scanner order= new Scanner(System.in);
   String answer = order.nextLine();
