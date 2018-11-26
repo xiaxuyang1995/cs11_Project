@@ -39,7 +39,7 @@ public class Project{
     }
     String nutriA[] = nutri.split(",");
 
-//print  menu
+//print menu
     System.out.printf("Hey %s, here is Today's Menu!%n",username);
     System.out.println();
     System.out.println("                                       MENU");
