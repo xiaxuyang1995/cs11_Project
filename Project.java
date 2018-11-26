@@ -56,7 +56,7 @@ public class Project{
     //order
      Scanner order= new Scanner(System.in);
      int [][] orderarray = new int[23][2];
-     System.out.printf("What would you like? %n(Please enter the item's corresponding number once at a time)%n");
+     System.out.printf("%nWhat would you like? %n(Please enter the item's corresponding number once at a time)%n");
      int numberofitem=0;
      int itemnumber=0;
        while(order.hasNextInt()&& numberofitem<23){
