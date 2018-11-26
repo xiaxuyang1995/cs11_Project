@@ -53,7 +53,7 @@ public class Andrew{
 
 
 //order
-    Scanner order= new Scanner(System.in);
+  Scanner order= new Scanner(System.in);
   int [][] orderarray = new int[23][2];
   System.out.printf("What would you like? %n(Please enter the item's corresponding number once at a time)%n");
   int numberofitem=0;
@@ -113,7 +113,7 @@ public class Andrew{
   System.out.printf("%nHere is your order summary!!%n");
   System.out.printf("Quantity\tItem%n");
   for(int i=0;i<customer.length;i++){
-    System.out.printf("%d \t %s", customer[i][1],itemA[customer[i][0]-1]);
+    System.out.printf("%d \t %s%n", customer[i][1],itemA[customer[i][0]-1]);
   }
 
 
