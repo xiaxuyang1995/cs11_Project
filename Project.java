@@ -14,33 +14,31 @@ public class Project{
     System.out.printf("%s? Nice name!%n",username);
     System.out.println();
 
+//read data
     TextIO.readFile("dataA.txt");
     double[][] data = new double[23][13];
-      for (int i=0;i<23;i++) {
-        for(int j=0; j<13; j++){
-          data[i][j]=TextIO.getDouble();
-        }
+    for (int i=0;i<23;i++) {
+      for(int j=0; j<13; j++){
+        data[i][j]=TextIO.getDouble();
       }
+    }
 
-      TextIO.readFile("item.txt");
-      String item = "";
-      while (!TextIO.eof()){
-        item = TextIO.getln();
-      }
+    TextIO.readFile("item.txt");
+    String item = "";
+    while (!TextIO.eof()){
+      item = TextIO.getln();
+    }
+    String itemA[] = item.split(",");
 
-      String itemA[] = item.split(",");
 
-      //System.out.println(Arrays.toString(itemA));
+    TextIO.readFile("nutri.txt");
+    String nutri = "";
+    while (!TextIO.eof()){
+      nutri = TextIO.getln();
+    }
+    String nutriA[] = nutri.split(",");
 
-      TextIO.readFile("nutri.txt");
-      String nutri = "";
-      while (!TextIO.eof()){
-        nutri = TextIO.getln();
-      }
-      String nutriA[] = nutri.split(",");
-
-      //System.out.println(Arrays.toString(nutriA));
-
+//print  menu
     System.out.printf("Hey %s, here is Today's Menu!%n",username);
     System.out.println();
     System.out.println("                                       MENU");
@@ -53,7 +51,7 @@ public class Project{
       }
     }
 
-    //order
+//user order the meal
      Scanner order= new Scanner(System.in);
      int [][] orderarray = new int[23][2];
      System.out.printf("%nWhat would you like? %n(Please enter the item's corresponding number once at a time)%n");
@@ -95,7 +93,6 @@ public class Project{
          orderarray[numberofitem][1]= itemquantity;
          System.out.printf("%d of %s%n%n",itemquantity,itemA[itemnumber-1]);
 
-
          System.out.printf("what other item would you like?%n(To finish your order, enter 'finish')%n");
          numberofitem++;
          order.nextLine();
@@ -107,8 +104,8 @@ public class Project{
        customer[i][1]=orderarray[i][1];
      }
 
-       // due to data consistentce issue, transform item to correspond with data file.
-       //customer array is the final array
+     // due to data consistentce issue, transform item to correspond with data file.
+     //customer array is the final array
 
      System.out.printf("%nHere is your order summary!!%n");
      System.out.printf("Quantity          Item%n");
@@ -121,19 +118,20 @@ public class Project{
 
   }
 
+
+//calculate the calories based on the customer's choice
 public static void calculate(int[][] orderarray, double[][] data, String[] itemA, String[] nutriA){
-  //in this method we calculate the calories based on the customer's choice
   double totalCalories = 0;
   double calories;
   for (int i=0; i<orderarray.length; i++){
     calories = data[(orderarray[i][0]-1)][0]*orderarray[i][1];
     totalCalories = totalCalories+calories;
-    System.out.printf("The calories for %s are %.2f%n", itemA[orderarray[i][0]-1], calories);
+    //System.out.printf("The calories for %s are %.2f%n", itemA[orderarray[i][0]-1], calories);
   }
   System.out.println("The total amount of calorie is "+totalCalories);
   System.out.println();
 
-  //we calculate the bill
+//calculate the bill
   double totalPrice = 0;
   double price;
   for (int i=0; i<orderarray.length; i++){
@@ -151,6 +149,7 @@ public static void calculate(int[][] orderarray, double[][] data, String[] itemA
   }else{}
 }
 
+//thank you note
   public static void thanks(){
     System.out.println("Thank you very much for visiting our restaurant. We will be happy to return to serve you with our best service. We hope to see you again soon!");
   }
