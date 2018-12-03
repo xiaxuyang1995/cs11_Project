@@ -39,18 +39,23 @@ public class Project{
     }
     String nutriA[] = nutri.split(",");
 
+    TextIO.readFile.close();
+
 //print menu
     System.out.printf("Hey %s, here is Today's Menu!%n",username);
     System.out.println();
-    System.out.println("                                       MENU");
-    System.out.printf("%30s                          %s%n"," ","Price");
+    System.out.println("                   MENU");
+    System.out.println(".............................................");
+    System.out.printf("%30s      %s%n","  ","Price");
     int k=1;
     for(int i=0;i<itemA.length; i++){
       if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
-          System.out.printf("%2d  %28s........................$%.2f %n",k,itemA[i],data[i][12]);
+          System.out.printf("%2d  %-28s    $%-3.2f %n",k,itemA[i],data[i][12]);
           k++;
       }
     }
+    System.out.println(".............................................");
+
 
 //user order the meal
      Scanner order= new Scanner(System.in);
@@ -65,21 +70,21 @@ public class Project{
            if(itemnumber==1){
            System.out.println("Would you like your burger to be Animal Style? ");
            String answer = order.nextLine();
-             if(answer.equals("yes")){itemnumber+=2;}
+             if(answer.contains("y")){itemnumber+=2;}
              else{itemnumber+=0;}
            }
 
            else if(itemnumber==2){
            System.out.println("Would you like your burger to be Animal Style? ");
            String answer2 = order.nextLine();
-             if(answer2.equals("yes")){itemnumber+=4;}
+             if(answer2.contains("y")){itemnumber+=4;}
              else{itemnumber+=2;}
            }
 
            else if(itemnumber==3){
            System.out.println("Would you like your burger to be Animal Style? ");
            String answer3 = order.nextLine();
-             if(answer3.equals("yes")){itemnumber+=6;}
+             if(answer3.contains("y")){itemnumber+=6;}
              else{itemnumber+=4;}
            }
 
@@ -109,10 +114,13 @@ public class Project{
      //customer array is the final array
 
      System.out.printf("%nHere is your order summary!!%n");
+     System.out.println(".............................................");
      System.out.printf("Quantity          Item%n");
      for(int i=0;i<customer.length;i++){
        System.out.printf("%d                 %s%n", customer[i][1],itemA[customer[i][0]-1]);
      }
+     System.out.println(".............................................");
+
 
 //method to calculate calories and bill
     calculate(customer, data, itemA, nutriA);
@@ -320,7 +328,7 @@ public static void calculate(int[][] orderarray, double[][] data, String[] itemA
     price = data[(orderarray[i][0])-1][12]*orderarray[i][1];
     totalPrice = totalPrice+price;
   }
-  System.out.printf("The total price is %.2f%n",totalPrice);
+  System.out.printf("The total price is $%.2f%n",totalPrice);
   System.out.println("Do you want to split the bill?");
   Scanner order= new Scanner(System.in);
   String answer = order.nextLine();
