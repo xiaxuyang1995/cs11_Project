@@ -118,6 +118,7 @@ public class Project{
     calculate(customer, data, itemA, nutriA);
 
 //method to find the fastest delivery route
+    TextIO.readStandardInput();
     route();
 
     thanks();
