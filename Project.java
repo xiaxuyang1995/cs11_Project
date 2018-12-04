@@ -53,70 +53,6 @@ public class Project{
       }
     }
 
-    //user order the meal
-    Scanner order= new Scanner(System.in);
-    int [][] orderarray = new int[23][2];
-    System.out.printf("%nWhat would you like? %n(Please enter the item's corresponding number once at a time)%n");
-    int numberofitem=0;
-    int itemnumber=0;
-    while(order.hasNextInt()&& numberofitem<23){
-      itemnumber=Integer.valueOf(order.nextLine());
-      orderarray[numberofitem][0]= itemnumber;
-
-      if(itemnumber==1){
-        System.out.println("Would you like your burger to be Animal Style? ");
-        String answer = order.nextLine();
-        if(answer.equals("yes")){itemnumber+=2;}
-        else{itemnumber+=0;}
-      }
-
-      else if(itemnumber==2){
-        System.out.println("Would you like your burger to be Animal Style? ");
-        String answer2 = order.nextLine();
-        if(answer2.equals("yes")){itemnumber+=4;}
-        else{itemnumber+=2;}
-      }
-
-      else if(itemnumber==3){
-        System.out.println("Would you like your burger to be Animal Style? ");
-        String answer3 = order.nextLine();
-        if(answer3.equals("yes")){itemnumber+=6;}
-        else{itemnumber+=4;}
-      }
-
-      else {
-        itemnumber+=6;
-      }
-
-      orderarray[numberofitem][0]= itemnumber;
-
-      System.out.println("How many would you want?");
-      int itemquantity= order.nextInt();
-      orderarray[numberofitem][1]= itemquantity;
-      System.out.printf("%d of %s%n%n",itemquantity,itemA[itemnumber-1]);
-
-      System.out.printf("what other item would you like?%n(To finish your order, enter 'finish')%n");
-      numberofitem++;
-      order.nextLine();
-    }
-
-    int[][] customer= new int [numberofitem][2];
-    for(int i=0;i<customer.length;i++){
-      customer[i][0]=orderarray[i][0];
-      customer[i][1]=orderarray[i][1];
-    }
-
-    // due to data consistentce issue, transform item to correspond with data file.
-    //customer array is the final array
-
-    System.out.printf("%nHere is your order summary!!%n");
-    System.out.printf("Quantity          Item%n");
-    for(int i=0;i<customer.length;i++){
-      System.out.printf("%d                 %s%n", customer[i][1],itemA[customer[i][0]-1]);
-    }
-    System.out.println(".............................................");
-
-
 //user order the meal
      Scanner order= new Scanner(System.in);
      int [][] orderarray = new int[23][2];
@@ -185,7 +121,7 @@ public class Project{
 //method to calculate calories and bill
     calculate(customer, data, itemA, nutriA);
 
-    //method to find the fastest delivery route
+//method to find the fastest delivery route
     TextIO.readStandardInput();
     route();
 
@@ -378,7 +314,6 @@ public static void calculate(int[][] orderarray, double[][] data, String[] itemA
     for (int j=0; j<12; j++) {
       colval = data[(orderarray[i][0]-1)][j]*orderarray[i][1];
       cun[i][j] = colval;
-      //System.out.printf("The calories for %s are %.2f%n", itemA[orderarray[i][0]-1], calories);
     }
   }
   double[] total = new double[12];
@@ -398,11 +333,8 @@ public static void calculate(int[][] orderarray, double[][] data, String[] itemA
   }
   */
 
-  for(int i=0;i<cun.length;i++){
-    for(int k=0;){
-      itemA[orderarray[i][0]-1],
-    }
-
+  for(int i=0;i<total.length;i++){
+      System.out.printf("%30s  %.2f%n",nutriA[i],total[i]);
   }
 
 
