@@ -44,84 +44,87 @@ public class Project{
     System.out.println();
     System.out.println("                   MENU");
     System.out.println(".............................................");
-    System.out.printf("%30s      %s%n","  ","Price");
+    System.out.printf("%30s    %s%n","  ","Price");
     int k=1;
     for(int i=0;i<itemA.length; i++){
       if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
-        System.out.printf("%2d  %28s........................$%.2f %n",k,itemA[i],data[i][12]);
+        System.out.printf("%2d  %-28s  $%-3.2f %n",k,itemA[i],data[i][12]);
         k++;
       }
     }
-
-//user order the meal
-     Scanner order= new Scanner(System.in);
-     int [][] orderarray = new int[23][2];
-     System.out.printf("%nWhat would you like? %n(Please enter the item's corresponding number once at a time)%n");
-     int numberofitem=0;
-     int itemnumber=0;
-       while(order.hasNextInt()&& numberofitem<23){
-         itemnumber=Integer.valueOf(order.nextLine());
-         orderarray[numberofitem][0]= itemnumber;
-
-           if(itemnumber==1){
-           System.out.println("Would you like your burger to be Animal Style? ");
-           String answer = order.nextLine();
-             if(answer.contains("y")){itemnumber+=2;}
-             else{itemnumber+=0;}
-           }
-
-           else if(itemnumber==2){
-           System.out.println("Would you like your burger to be Animal Style? ");
-           String answer2 = order.nextLine();
-             if(answer2.contains("y")){itemnumber+=4;}
-             else{itemnumber+=2;}
-           }
-
-           else if(itemnumber==3){
-           System.out.println("Would you like your burger to be Animal Style? ");
-           String answer3 = order.nextLine();
-             if(answer3.contains("y")){itemnumber+=6;}
-             else{itemnumber+=4;}
-           }
-
-           else {
-             itemnumber+=6;
-           }
-
-         orderarray[numberofitem][0]= itemnumber;
-
-         System.out.println("How many would you want?");
-         int itemquantity= order.nextInt();
-         orderarray[numberofitem][1]= itemquantity;
-         System.out.printf("%d of %s%n%n",itemquantity,itemA[itemnumber-1]);
-
-         System.out.printf("what other item would you like?%n(To finish your order, enter 'finish')%n");
-         numberofitem++;
-         order.nextLine();
-       }
-
-     int[][] customer= new int [numberofitem][2];
-     for(int i=0;i<customer.length;i++){
-       customer[i][0]=orderarray[i][0];
-       customer[i][1]=orderarray[i][1];
-     }
-
-     // due to data consistentce issue, transform item to correspond with data file.
-     //customer array is the final array
-
-     System.out.printf("%nHere is your order summary!!%n");
-     System.out.println(".............................................");
-     System.out.printf("Quantity          Item%n");
-     for(int i=0;i<customer.length;i++){
-       System.out.printf("%d                 %s%n", customer[i][1],itemA[customer[i][0]-1]);
-     }
-     System.out.println(".............................................");
+    System.out.println(".............................................");
 
 
-//method to calculate calories and bill
+    //user order the meal
+    Scanner order= new Scanner(System.in);
+    int [][] orderarray = new int[23][2];
+    System.out.printf("%nWhat would you like? %n(Please enter the item's corresponding number once at a time)%n");
+    int numberofitem=0;
+    int itemnumber=0;
+    while(order.hasNextInt()&& numberofitem<23){
+      itemnumber=Integer.valueOf(order.nextLine());
+      orderarray[numberofitem][0]= itemnumber;
+
+      if(itemnumber==1){
+        System.out.println("Would you like your burger to be Animal Style? ");
+        String answer = order.nextLine();
+        if(answer.contains("y")){itemnumber+=2;}
+        else{itemnumber+=0;}
+      }
+
+      else if(itemnumber==2){
+        System.out.println("Would you like your burger to be Animal Style? ");
+        String answer2 = order.nextLine();
+        if(answer2.contains("y")){itemnumber+=4;}
+        else{itemnumber+=2;}
+      }
+
+      else if(itemnumber==3){
+        System.out.println("Would you like your burger to be Animal Style? ");
+        String answer3 = order.nextLine();
+        if(answer3.contains("y")){itemnumber+=6;}
+        else{itemnumber+=4;}
+      }
+
+      else {
+        itemnumber+=6;
+      }
+
+      orderarray[numberofitem][0]= itemnumber;
+
+      System.out.println("How many would you want?");
+      int itemquantity= order.nextInt();
+      orderarray[numberofitem][1]= itemquantity;
+      System.out.printf("%d of %s%n%n",itemquantity,itemA[itemnumber-1]);
+
+      System.out.printf("what other item would you like?%n(To finish your order, enter 'finish')%n");
+      numberofitem++;
+      order.nextLine();
+    }
+
+    int[][] customer= new int [numberofitem][2];
+    for(int i=0;i<customer.length;i++){
+      customer[i][0]=orderarray[i][0];
+      customer[i][1]=orderarray[i][1];
+    }
+
+    // due to data consistentce issue, transform item to correspond with data file.
+    //customer array is the final array
+    
+    System.out.println(".............................................");
+    System.out.printf("%nHere is your order summary!!%n");
+    System.out.printf("Quantity          Item%n");
+    for(int i=0;i<customer.length;i++){
+      System.out.printf("%d                 %s%n", customer[i][1],itemA[customer[i][0]-1]);
+    }
+    System.out.println(".............................................");
+
+
+    //method to calculate calories and bill
     calculate(customer, data, itemA, nutriA);
 
-//method to find the fastest delivery route
+    //method to find the fastest delivery route
+    System.out.println();
     TextIO.readStandardInput();
     route();
 
@@ -153,12 +156,13 @@ public class Project{
           k++;
         }
         else{ind[i][j]="[]";
+        }
       }
     }
-  }
   posi[81][0]=4;
   posi[81][1]=7;
   ind[4][7]="*";
+  System.out.println(".............................................");
   System.out.println("Please enter your house number. Below is the map of our town. * is the location of our store. [] stand for areas that cannot go through.");
   //print ind
   for (int i=0;i<10;i++) {
@@ -173,6 +177,8 @@ public class Project{
     System.out.printf("Sorry, this house number is not in this town. Please enter another house number from 1 to 80: ");
     housenum=TextIO.getlnInt();//User input
   }
+
+  System.out.println(".............................................");
   System.out.printf("Thank you. We are preparing your food. Please wait.%n");
   //Delay
   for (int i=0;i<1000000; i++) {
@@ -326,41 +332,44 @@ public static void calculate(int[][] orderarray, double[][] data, String[] itemA
     }
   }
 
-  /**System.out.println("Calories | Total Fat % Daily Values* | Cholesterol % Daily Values* | Sodium % Daily Values* | Carbohydrates % Daily Values* | Dietary Fiber % Daily Values* | Sugars (g) | Protein (g) | % Vitamin A | % Vitamin C | % Calcium | % Iron ");
-  for(int i=0;i<orderarray.length;i++){
-  System.out.printf("%-28s  %-9.2f  %-26.2f  %-28.2f  %-23.2f  %-30.2f  %-30.2f  %-11.2f  %-12.2f  %-12.2f  %-12.2f  %-10.2f  %-7.2f %n", itemA[orderarray[i][0]-1],
-  total[0],total[1],total[2],total[3],total[4],total[5],total[6],total[7],total[8],total[9],total[10],total[11]);
-  }
-  */
-
-  for(int i=0;i<total.length;i++){
-      System.out.printf("%30s  %.2f%n",nutriA[i],total[i]);
-  }
+System.out.println();
+System.out.println();
+System.out.println(".............................................");
+System.out.println("Nutrition Facts:");
+for(int i=0;i<total.length;i++){
+  System.out.printf("%30s  %.2f%n",nutriA[i],total[i]);
+}
+System.out.println(".............................................");
 
 
 
 
-  //calculate the bill
-  double totalPrice = 0;
-  double price;
-  for (int i=0; i<orderarray.length; i++){
-    price = data[(orderarray[i][0])-1][12]*orderarray[i][1];
-    totalPrice = totalPrice+price;
-  }
-  System.out.printf("The total price is $%.2f%n",totalPrice);
-  System.out.println("Do you want to split the bill?");
-  Scanner order= new Scanner(System.in);
-  String answer = order.nextLine();
-  if(answer.equals("yes")){
-    System.out.println("How many people?");
-    int people = order.nextInt();
-    System.out.println("Each should pay "+(totalPrice/people)+"dollar");
-  }else{}
-  }
+//calculate the bill
+double totalPrice = 0;
+double price;
+for (int i=0; i<orderarray.length; i++){
+  price = data[(orderarray[i][0])-1][12]*orderarray[i][1];
+  totalPrice = totalPrice+price;
+}
+System.out.printf("The total price is $%.2f%n",totalPrice);
+System.out.println(".............................................");
 
-  //thank you note
-  public static void thanks(){
-    System.out.println("Thank you very much for visiting our restaurant. We will be happy to return to serve you with our best service. We hope to see you again soon!");
-  }
+System.out.println("Do you want to split the bill?");
+Scanner order= new Scanner(System.in);
+String answer = order.nextLine();
+if(answer.equals("yes")){
+  System.out.println("How many people?");
+  int people = order.nextInt();
+  System.out.println("Each should pay "+(totalPrice/people)+"dollar");
+}else{}
+}
+
+//thank you note
+public static void thanks(){
+  System.out.println("Thank you very much for visiting our restaurant. We hope to see you again soon!");
+  System.out.println();
+  System.out.println();
+  System.out.println();
+}
 
 }
