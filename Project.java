@@ -110,9 +110,9 @@ public class Project{
 
     // due to data consistentce issue, transform item to correspond with data file.
     //customer array is the final array
-
+    System.out.println();
     System.out.println(".............................................");
-    System.out.printf("%nHere is your order summary!!%n");
+    System.out.printf("Here is your order summary!!%n");
     System.out.printf("Quantity          Item%n");
     for(int i=0;i<customer.length;i++){
       System.out.printf("%d                 %s%n", customer[i][1],itemA[customer[i][0]-1]);
