@@ -159,217 +159,208 @@ public class Project{
         }
       }
     }
-  posi[81][0]=4;
-  posi[81][1]=7;
-  ind[4][7]="*";
-  System.out.println(".............................................");
-  System.out.println("Please enter your house number. Below is the map of our town. * is the location of our store. [] stand for areas that cannot go through.");
-  //print ind
-  for (int i=0;i<10;i++) {
-    for (int j=0;j<10;j++) {
-      System.out.printf("%2s ",ind[i][j]);
+    posi[81][0]=4;
+    posi[81][1]=7;
+    ind[4][7]="*";
+    System.out.println(".............................................");
+    System.out.printf("Please enter your house number. Below is the map of our town. * is the location of our store. [] stand for areas that cannot go through.%n%n");
+    //print ind
+    for (int i=0;i<10;i++) {
+      for (int j=0;j<10;j++) {
+        System.out.printf("%2s ",ind[i][j]);
+      }
+      System.out.println();
     }
-    System.out.println();
-  }
-  System.out.printf("Please enter a number from 1 to 80: ");
-  int housenum=TextIO.getlnInt();//User input
-  for(;housenum<1||housenum>80;){
-    System.out.printf("Sorry, this house number is not in this town. Please enter another house number from 1 to 80: ");
-    housenum=TextIO.getlnInt();//User input
-  }
+    System.out.printf("%nPlease enter a number from 1 to 80: ");
+    int housenum=TextIO.getlnInt();//User input
+    for(;housenum<1||housenum>80;){
+      System.out.printf("Sorry, this house number is not in this town. Please enter another house number from 1 to 80: ");
+      housenum=TextIO.getlnInt();//User input
+    }
 
-  System.out.println(".............................................");
-  System.out.printf("Thank you. We are preparing your food. Please wait.%n");
-  //Delay
-  for (int i=0;i<1000000; i++) {
-    for (int j=0;j<3050; j++) {
-      for (int p=0;p<3; p++) {
+    System.out.println(".............................................");
+    System.out.printf("Thank you. We are preparing your food. Please wait.%n");
+    //Delay
+    for (int i=0;i<1000000; i++) {
+      for (int j=0;j<3050; j++) {
+        for (int p=0;p<3; p++) {
 
+        }
       }
     }
-  }
-  //Delay End
-  System.out.printf("%nYour food is ready! Our delivery staff of genius is already on the fastest path to your house as shown below. Enjoy your meal!%n");
-  int[] hvalue = new int[81];
-  for(int i=1;i<81;i++){
-    hvalue[i]= 1000*Math.abs(posi[housenum][0]-posi[i][0])+1000*Math.abs(posi[housenum][1]-posi[i][1]);
-  }
-  int[] parent = new int[82];
-  parent[81]=81;
-  int[] openlist = new int[81];
-  int olmark=0;
-  openlist[olmark]=81;
-  olmark++;
-  int[] closelist = new int[81];
-  int clmark=0;
-  int[] fvalue=new int[81];
-  int[] gvalue=new int[82];
-  gvalue[81]=0;
-  int newcenter=81;
-  int center=newcenter;
-  for (;!testContain(openlist,housenum);) {
-    center=newcenter;
-    ///     System.out.println(center);
-    //goAround
-    int tempind=999;
-    int addk=0;
-    int addkr=0;
-    int tempg;
-    for(int i=-1;i<2;i++){
-      for(int j=-1;j<2;j++){
-        if((i!=0||j!=0)&&(posi[center][0]!=9||i!=1)&&(posi[center][1]!=9||j!=1)&&(posi[center][0]!=0||i!=-1)&&(posi[center][1]!=0||j!=-1)) {
-          if(avai[posi[center][0]+i][posi[center][1]+j]!=0){
-            tempind=findInd(posi[center][0]+i,posi[center][1]+j, posi);
-            //            System.out.println(tempind+" "+(posi[center][0]+i)+" "+(posi[center][1]+j));
-
-            if(testContain(openlist,tempind)) {
-              addk=(i*j!=0)?1414:1000;
-              tempg=gvalue[center]+addk;
-              //                System.out.println("^^ "+tempg);
-              if(tempg<gvalue[tempind]){
+    //Delay End
+    System.out.printf("%nYour food is ready! Our delivery staff of genius is already on the fastest path to your house as shown below. Enjoy your meal!%n%n");
+    int[] hvalue = new int[81];
+    for(int i=1;i<81;i++){
+      hvalue[i]= 1000*Math.abs(posi[housenum][0]-posi[i][0])+1000*Math.abs(posi[housenum][1]-posi[i][1]);
+    }
+    int[] parent = new int[82];
+    parent[81]=81;
+    int[] openlist = new int[81];
+    int olmark=0;
+    openlist[olmark]=81;
+    olmark++;
+    int[] closelist = new int[81];
+    int clmark=0;
+    int[] fvalue=new int[81];
+    int[] gvalue=new int[82];
+    gvalue[81]=0;
+    int newcenter=81;
+    int center=newcenter;
+    for (;!testContain(openlist,housenum);) {
+      center=newcenter;
+      //goAround
+      int tempind=999;
+      int addk=0;
+      int addkr=0;
+      int tempg;
+      for(int i=-1;i<2;i++){
+        for(int j=-1;j<2;j++){
+          if((i!=0||j!=0)&&(posi[center][0]!=9||i!=1)&&(posi[center][1]!=9||j!=1)&&(posi[center][0]!=0||i!=-1)&&(posi[center][1]!=0||j!=-1)) {
+            if(avai[posi[center][0]+i][posi[center][1]+j]!=0){
+              tempind=findInd(posi[center][0]+i,posi[center][1]+j, posi);
+              if(testContain(openlist,tempind)) {
+                addk=(i*j!=0)?1414:1000;
+                tempg=gvalue[center]+addk;
+                //                System.out.println("^^ "+tempg);
+                if(tempg<gvalue[tempind]){
+                  parent[tempind]=center;
+                  gvalue[tempind]=tempg;
+                  fvalue[tempind]=hvalue[tempind]+gvalue[tempind];
+                }
+              }
+              else if(!testContain(closelist,tempind)) {
+                openlist[olmark]=tempind;
+                olmark++;
                 parent[tempind]=center;
-                gvalue[tempind]=tempg;
+                addk=(i*j!=0)?1414:1000;
+                gvalue[tempind]=gvalue[center]+addk;
                 fvalue[tempind]=hvalue[tempind]+gvalue[tempind];
               }
             }
-            else if(!testContain(closelist,tempind)) {
-              openlist[olmark]=tempind;
-              olmark++;
-              parent[tempind]=center;
-              addk=(i*j!=0)?1414:1000;
-              gvalue[tempind]=gvalue[center]+addk;
-              fvalue[tempind]=hvalue[tempind]+gvalue[tempind];
-            }
-
-
           }
         }
       }
-    }
-    //goAround End
-    //add to closelist
-    closelist[clmark]=center;
-    clmark++;
-    //remove from openlist
-    for(int i=0;i<81;i++){
-      if(openlist[i]==center){
-        openlist[i]=0;
-      }
-    }
-    //      System.out.println(testContain(openlist,center));
-    newcenter=leastOpenlist(fvalue,openlist);
-  }
-  int st=parent[housenum];
-  //    System.out.println("** "+parent[housenum]);
-  for (int i=0;i<10;i++) {
-    for (int j=0;j<10;j++) {
-      st=parent[housenum];
-      for (;st!=81; ) {
-        if(ind[i][j].equals(st+"")){
-          ind[i][j]=".";
+      //goAround End
+      //add to closelist
+      closelist[clmark]=center;
+      clmark++;
+      //remove from openlist
+      for(int i=0;i<81;i++){
+        if(openlist[i]==center){
+          openlist[i]=0;
         }
-        //          System.out.println(parent[st]);
-        st=parent[st];
+      }
+      newcenter=leastOpenlist(fvalue,openlist);
+    }
+    int st=parent[housenum];
+    for (int i=0;i<10;i++) {
+      for (int j=0;j<10;j++) {
+        st=parent[housenum];
+        for (;st!=81; ) {
+          if(ind[i][j].equals(st+"")){
+            ind[i][j]=".";
+          }
+          st=parent[st];
+        }
       }
     }
-  }
-  //  int a=ind[2][1];
-  for (int i=0;i<10;i++) {
-    for (int j=0;j<10;j++) {
-      System.out.printf("%2s ",ind[i][j]);
+    for (int i=0;i<10;i++) {
+      for (int j=0;j<10;j++) {
+        System.out.printf("%2s ",ind[i][j]);
+      }
+      System.out.println();
     }
     System.out.println();
+
   }
 
-
-}
-
-public static boolean testContain(int[] arr,int targetValue){
-  for(int i=0;i<arr.length;i++){
-    if(arr[i]==targetValue){
-      return true;
+  public static boolean testContain(int[] arr,int targetValue){
+    for(int i=0;i<arr.length;i++){
+      if(arr[i]==targetValue){
+        return true;
+      }
     }
+    return false;
   }
-  return false;
-}
-public static int findInd(int row,int col,int[][] posi){
-  for(int i=1;i<82;i++){
-    if(row==posi[i][0]&&col==posi[i][1]){
-      return i;
+  public static int findInd(int row,int col,int[][] posi){
+    for(int i=1;i<82;i++){
+      if(row==posi[i][0]&&col==posi[i][1]){
+        return i;
+      }
     }
+    return 8888;
   }
-  return 8888;
-}
-public static int leastOpenlist(int[] fvalue,int[] openlist){
-  int tempxxy=99999;
-  int leastind=0;
-  for(int i=0;i<81;i++){
-    if(fvalue[i]!=0&&fvalue[i]<tempxxy&&testContain(openlist,i)) {
-      tempxxy=fvalue[i];
-      leastind=i;
+  public static int leastOpenlist(int[] fvalue,int[] openlist){
+    int tempxxy=99999;
+    int leastind=0;
+    for(int i=0;i<81;i++){
+      if(fvalue[i]!=0&&fvalue[i]<tempxxy&&testContain(openlist,i)) {
+        tempxxy=fvalue[i];
+        leastind=i;
+      }
     }
+    return leastind;
   }
-  return leastind;
-}
 
-//calculate the calories based on the customer's choice
-public static void calculate(int[][] orderarray, double[][] data, String[] itemA, String[] nutriA){
-  double colval;
-  double[][] cun = new double[orderarray.length][12];
-  for (int i=0; i<orderarray.length; i++){
-    for (int j=0; j<12; j++) {
-      colval = data[(orderarray[i][0]-1)][j]*orderarray[i][1];
-      cun[i][j] = colval;
+  //calculate the calories based on the customer's choice
+  public static void calculate(int[][] orderarray, double[][] data, String[] itemA, String[] nutriA){
+    double colval;
+    double[][] cun = new double[orderarray.length][12];
+    for (int i=0; i<orderarray.length; i++){
+      for (int j=0; j<12; j++) {
+        colval = data[(orderarray[i][0]-1)][j]*orderarray[i][1];
+        cun[i][j] = colval;
+      }
     }
-  }
-  double[] total = new double[12];
+    double[] total = new double[12];
 
-  for (int i=0;i<12;i++){
-    double sum=0;
-    for (int k=0;k<cun.length;k++){
-      sum=sum+cun[k][i];
-      total[i]=sum;
+    for (int i=0;i<12;i++){
+      double sum=0;
+      for (int k=0;k<cun.length;k++){
+        sum=sum+cun[k][i];
+        total[i]=sum;
+      }
     }
+
+    System.out.println();
+    System.out.println();
+    System.out.println(".............................................");
+    System.out.println("Nutrition Facts:");
+    for(int i=0;i<total.length;i++){
+      System.out.printf("%30s  %.2f%n",nutriA[i],total[i]);
+    }
+    System.out.println(".............................................");
+
+
+
+
+   //calculate the bill
+    double totalPrice = 0;
+    double price;
+    for (int i=0; i<orderarray.length; i++){
+      price = data[(orderarray[i][0])-1][12]*orderarray[i][1];
+      totalPrice = totalPrice+price;
+    }
+    System.out.printf("The total price is $%.2f%n",totalPrice);
+    System.out.println(".............................................");
+
+    System.out.println("Do you want to split the bill?");
+    Scanner order= new Scanner(System.in);
+    String answer = order.nextLine();
+    if(answer.contains("y")){
+      System.out.println("How many people?");
+      int people = order.nextInt();
+      System.out.printf("Each should pay %.2f dollars. ",totalPrice/people);
+    }else{}
   }
 
-System.out.println();
-System.out.println();
-System.out.println(".............................................");
-System.out.println("Nutrition Facts:");
-for(int i=0;i<total.length;i++){
-  System.out.printf("%30s  %.2f%n",nutriA[i],total[i]);
-}
-System.out.println(".............................................");
-
-
-
-
-//calculate the bill
-double totalPrice = 0;
-double price;
-for (int i=0; i<orderarray.length; i++){
-  price = data[(orderarray[i][0])-1][12]*orderarray[i][1];
-  totalPrice = totalPrice+price;
-}
-System.out.printf("The total price is $%.2f%n",totalPrice);
-System.out.println(".............................................");
-
-System.out.println("Do you want to split the bill?");
-Scanner order= new Scanner(System.in);
-String answer = order.nextLine();
-if(answer.equals("yes")){
-  System.out.println("How many people?");
-  int people = order.nextInt();
-  System.out.printf("Each should pay $%.2f%n",(totalPrice/people));
-}else{}
-}
-
-//thank you note
-public static void thanks(){
-  System.out.println("Thank you very much for visiting our restaurant. We hope to see you again soon!");
-  System.out.println();
-  System.out.println();
-  System.out.println();
-}
+  //thank you note
+  public static void thanks(){
+    System.out.println("Thank you very much for choosing our restaurant. We hope to see you again soon!");
+    System.out.println();
+    System.out.println();
+    System.out.println();
+  }
 
 }
