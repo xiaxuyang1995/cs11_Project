@@ -110,7 +110,7 @@ public class Project{
 
     // due to data consistentce issue, transform item to correspond with data file.
     //customer array is the final array
-    
+
     System.out.println(".............................................");
     System.out.printf("%nHere is your order summary!!%n");
     System.out.printf("Quantity          Item%n");
@@ -360,7 +360,7 @@ String answer = order.nextLine();
 if(answer.equals("yes")){
   System.out.println("How many people?");
   int people = order.nextInt();
-  System.out.println("Each should pay "+(totalPrice/people)+"dollar");
+  System.out.printf("Each should pay $%.2f%n",(totalPrice/people));
 }else{}
 }
 
