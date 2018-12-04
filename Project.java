@@ -4,7 +4,7 @@ public class Project{
   public static void main(String[] args){
     //greating
     System.out.println();
-    System.out.println("Hello there!!");
+    System.out.println("ヾ(*・▽・)ﾂ Hello there!!");
     System.out.println();
     System.out.printf("Welcome to the Food Heaven simulator!%nAt here, we'll try to satisfy all your hunger!%n");
     System.out.println();
@@ -42,17 +42,18 @@ public class Project{
     //print menu
     System.out.printf("Hey %s, here is Today's Menu!%n",username);
     System.out.println();
-    System.out.println("                   MENU");
-    System.out.println(".............................................");
-    System.out.printf("%30s    %s%n","  ","Price");
+    System.out.println("┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑");
+    System.out.println("│                    MENU                    │");
+    System.out.println("┝━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┥");
+    System.out.printf("│%30s         %s│%n","  ","Price");
     int k=1;
     for(int i=0;i<itemA.length; i++){
       if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
-        System.out.printf("%2d  %-28s  $%-3.2f %n",k,itemA[i],data[i][12]);
+        System.out.printf("│%2d  %-28s       $%-3.2f│%n",k,itemA[i],data[i][12]);
         k++;
       }
     }
-    System.out.println(".............................................");
+    System.out.println("└────────────────────────────────────────────┘");
 
 
     //user order the meal
@@ -115,7 +116,7 @@ public class Project{
     System.out.printf("Here is your order summary!!%n");
     System.out.printf("Quantity          Item%n");
     for(int i=0;i<customer.length;i++){
-      System.out.printf("%d                 %s%n", customer[i][1],itemA[customer[i][0]-1]);
+      System.out.printf("%-18d%s%n", customer[i][1],itemA[customer[i][0]-1]);
     }
     System.out.println(".............................................");
 
@@ -163,7 +164,10 @@ public class Project{
     posi[81][1]=7;
     ind[4][7]="*";
     System.out.println(".............................................");
-    System.out.printf("Please enter your house number. Below is the map of our town. * is the location of our store. [] stand for areas that cannot go through.%n%n");
+    System.out.println();
+    System.out.println();
+
+    System.out.printf("Below is the map of our town. Please enter your house number.%n* is the location of our store. [] are areas that cannot go through.%n%n");
     //print ind
     for (int i=0;i<10;i++) {
       for (int j=0;j<10;j++) {
@@ -171,25 +175,52 @@ public class Project{
       }
       System.out.println();
     }
-    System.out.printf("%nPlease enter a number from 1 to 80: ");
+    System.out.printf("%nPlease enter your house number (from 1 to 80): ");
     int housenum=TextIO.getlnInt();//User input
     for(;housenum<1||housenum>80;){
-      System.out.printf("Sorry, this house number is not in this town. Please enter another house number from 1 to 80: ");
+      System.out.printf("Sorry, this house is not in our town. Please enter the house number from 1 to 80: ");
       housenum=TextIO.getlnInt();//User input
     }
 
     System.out.println(".............................................");
-    System.out.printf("Thank you. We are preparing your food. Please wait.%n");
+    System.out.printf("Thank you. We are preparing your food. Please wait.%n%n");
     //Delay
-    for (int i=0;i<1000000; i++) {
+    for (int i=0;i<2000000; i++) {
       for (int j=0;j<3050; j++) {
         for (int p=0;p<3; p++) {
 
         }
       }
     }
+
+    System.out.println("█████████████████50%...");
+    for (int i=0;i<2000000; i++) {
+      for (int j=0;j<3050; j++) {
+        for (int p=0;p<3; p++) {
+
+        }
+      }
+    }
+
+    System.out.println(" ");
+    for (int i=0;i<2000000; i++) {
+      for (int j=0;j<3050; j++) {
+        for (int p=0;p<300; p++) {
+
+        }
+      }
+    }
+
+    System.out.println("██████████████████████████████████99%...");
+    for (int i=0;i<2000000; i++) {
+      for (int j=0;j<3100; j++) {
+        for (int p=0;p<300; p++) {
+          
+        }
+      }
+    }
     //Delay End
-    System.out.printf("%nYour food is ready! Our delivery staff of genius is already on the fastest path to your house as shown below. Enjoy your meal!%n%n");
+    System.out.printf("%nYour food is ready! %nOur delivery staff is on his fastest path to your house as shown below. Enjoy your meal!%n%n");
     int[] hvalue = new int[81];
     for(int i=1;i<81;i++){
       hvalue[i]= 1000*Math.abs(posi[housenum][0]-posi[i][0])+1000*Math.abs(posi[housenum][1]-posi[i][1]);
@@ -343,8 +374,9 @@ public class Project{
       totalPrice = totalPrice+price;
     }
     System.out.printf("The total price is $%.2f%n",totalPrice);
+    System.out.println();
+    System.out.println();
     System.out.println(".............................................");
-
     System.out.println("Do you want to split the bill?");
     Scanner order= new Scanner(System.in);
     String answer = order.nextLine();
