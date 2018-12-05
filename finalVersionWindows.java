@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class finalVersion{
+public class finalVersionWindows{
   public static void main(String[] args){
     //greating
     System.out.println();

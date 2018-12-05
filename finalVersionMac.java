@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Project{
+public class finalVersionMac{
   public static void main(String[] args){
     //greating
     System.out.println();
