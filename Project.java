@@ -4,7 +4,7 @@ public class Project{
   public static void main(String[] args){
     //greating
     System.out.println();
-    System.out.println("ヾ(*・▽・)ﾂ Hello there!!");
+    System.out.println("Hello there!!");
     System.out.println();
     System.out.printf("Welcome to the Food Heaven simulator!%nAt here, we'll try to satisfy all your hunger!%n");
     System.out.println();
@@ -42,10 +42,9 @@ public class Project{
     //print menu
     System.out.printf("Hey %s, here is Today's Menu!%n",username);
     System.out.println();
-    System.out.println("┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑");
-    System.out.println("│                    MENU                    │");
-    System.out.println("┝━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┥");
-    System.out.printf("│%30s         %s│%n","  ","Price");
+    System.out.println("                    MENU                    ");
+    System.out.println(".............................................");
+    System.out.printf(" %30s         %s%n","  ","Price");
     int k=1;
     for(int i=0;i<itemA.length; i++){
       if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
@@ -167,7 +166,7 @@ public class Project{
     System.out.println();
     System.out.println();
 
-    System.out.printf("Below is the map of our town. Please enter your house number.%n* is the location of our store. [] are areas that cannot go through.%n%n");
+    System.out.printf("Below is the map of our town. Please enter your house number.%n* is the location of our restaurant. [] are areas that cannot go through.%n%n");
     //print ind
     for (int i=0;i<10;i++) {
       for (int j=0;j<10;j++) {
@@ -185,6 +184,7 @@ public class Project{
     System.out.println(".............................................");
     System.out.printf("Thank you. We are preparing your food. Please wait.%n%n");
     //Delay
+
     for (int i=0;i<2000000; i++) {
       for (int j=0;j<3050; j++) {
         for (int p=0;p<3; p++) {
@@ -193,32 +193,6 @@ public class Project{
       }
     }
 
-    System.out.println("█████████████████50%...");
-    for (int i=0;i<2000000; i++) {
-      for (int j=0;j<3050; j++) {
-        for (int p=0;p<3; p++) {
-
-        }
-      }
-    }
-
-    System.out.println(" ");
-    for (int i=0;i<2000000; i++) {
-      for (int j=0;j<3050; j++) {
-        for (int p=0;p<300; p++) {
-
-        }
-      }
-    }
-
-    System.out.println("██████████████████████████████████99%...");
-    for (int i=0;i<2000000; i++) {
-      for (int j=0;j<3100; j++) {
-        for (int p=0;p<300; p++) {
-
-        }
-      }
-    }
     //Delay End
     System.out.printf("%nYour food is ready! %nOur delivery staff is on his fastest path to your house as shown below. Enjoy your meal!%n%n");
     int[] hvalue = new int[81];
