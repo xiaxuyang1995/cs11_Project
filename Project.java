@@ -48,11 +48,10 @@ public class Project{
     int k=1;
     for(int i=0;i<itemA.length; i++){
       if(i!=1 && i!=2 && i!=4 && i!=5 && i!=7 && i!=8){
-        System.out.printf("│%2d  %-28s       $%-3.2f│%n",k,itemA[i],data[i][12]);
+        System.out.printf("%2d  %-28s       $%-3.2f%n",k,itemA[i],data[i][12]);
         k++;
       }
     }
-    System.out.println("└────────────────────────────────────────────┘");
 
 
     //user order the meal
